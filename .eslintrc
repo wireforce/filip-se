@@ -1,0 +1,31 @@
+{
+	"extends": "react-app",
+	"rules": {
+		"global-require": "off",
+		"comma-dangle": "off",
+		"prefer-template": "off",
+		"no-trailing-spaces": "off",
+		"max-len": [
+			"error",
+			{
+				"code": 120,
+				"ignoreUrls": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true,
+				"ignoreComments": true
+			}
+		],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"no-tabs": "off",
+		"arrow-body-style": "off"
+	},
+	"globals": {
+		"gapi": false
+	}
+}

@@ -1,0 +1,85 @@
+.wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	box-shadow: 0 0 2px rgba(99, 112, 107, 0.5);
+	background-color: #fff;
+	opacity: 0.975;
+}
+
+.container {
+	composes: pageContainer from 'common/styles/common.module.css';
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.logoItem {
+	flex-grow: 6;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.menuItem {
+	flex-grow: 1;
+	font-weight: 600;
+	padding: 1rem 0 calc(1rem - 2px) 1rem;
+	text-decoration: none;
+	color: rgb(100, 112, 108);
+	transition: all 0.3s ease;
+	border-bottom: solid 2px transparent;
+
+	&:hover {
+		background-color: rgba(100, 112, 108, 0.05);
+		border-bottom: solid 2px rgb(100, 112, 108);
+	}
+
+	&:hover .menuItemIcon {
+		transition: transform 0.4s cubic-bezier(0.000, 1.085, 0.720, 1.370);
+		transform: rotate(450deg);
+	}
+}
+
+.socialIcons {
+	flex-grow: 1;
+	padding: 1rem 0 calc(1rem - 2px) 1rem;
+	text-align: right;
+}
+
+.menuItemIcon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+	margin-right: 4px;
+	color: rgb(100, 112, 108);
+	transform: rotate(90deg);
+}
+
+.logoLink {
+	text-decoration: none;
+}
+
+.logo {
+	font-size: 1rem;
+	line-height: 1rem;
+	margin: 0;
+	color: #666;
+}
+
+.socialIcon {
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
+	margin-left: 0.5rem;
+	color: rgb(100, 112, 108);
+	transform: scale(1) rotate(0);
+	transition: transform 0.3s ease;
+	cursor: pointer;
+
+	&:hover {
+		transform: scale(1.25) rotate(10deg);
+	}
+}

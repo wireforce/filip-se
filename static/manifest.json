@@ -1,0 +1,17 @@
+{
+  "name": "filip.se",
+  "short_name": "filip.se",
+  "lang": "sv",
+  "default_locale": "sv",
+  "description": "filip.se - Blogs and articles about diet, exercise and health",
+  "icons": [{
+    "src": "/favicon.png",
+    "type": "image/png",
+    "sizes": "128x128"
+  }],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#c7ad88",
+  "theme_color": "#c7ad88"
+}

@@ -1,6 +1,17 @@
+const path = require('path');
+
 module.exports = {
 	siteMetadata: {
-		title: 'filip.se',
+		metaTitle: 'filip.se',
+		metaDescription: 'filip.se - Blogs and articles about diet, exercise and health',
 	},
-	plugins: ['gatsby-plugin-react-helmet'],
+	plugins: [
+		'gatsby-plugin-react-helmet',
+		{
+			resolve: 'gatsby-plugin-root-import',
+			options: {
+				root: path.join(__dirname, 'src'),
+			},
+		},
+	],
 };

@@ -1,27 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-
-import Header from '../components/header';
+import PageHeader from 'components/widgets/PageHeader';
+import PageFooter from 'components/widgets/PageFooter';
 import './index.css';
+import styles from './index.module.css';
 
 const Layout = ({ children, data }) => (
-	<div>
+	<div className={styles.wrapper}>
 		<Helmet
-			title={data.site.siteMetadata.title}
-			meta={[{ name: 'description', content: 'Sample' }, { name: 'keywords', content: 'sample, something' }]}
+			meta={[
+				{ name: 'title', content: data.site.siteMetadata.metaTitle },
+				{ name: 'description', content: data.site.siteMetadata.metaDescription },
+			]}
+			link={[
+				{
+					rel: 'icon',
+					type: 'image/png',
+					sizes: '32x32',
+					href: '/favicon.png',
+				},
+				{
+					rel: 'apple-touch-icon',
+					href: '/favicon.png',
+				},
+				{
+					rel: 'manifest',
+					href: '/manifest.json',
+				},
+			]}
 		/>
-		<Header siteTitle={data.site.siteMetadata.title} />
-		<div
-			style={{
-				margin: '0 auto',
-				maxWidth: 960,
-				padding: '0px 1.0875rem 1.45rem',
-				paddingTop: 0,
-			}}
-		>
-			{children()}
-		</div>
+		<PageHeader />
+		<div className={styles.container}>{children()}</div>
+		<PageFooter />
 	</div>
 );
 
@@ -35,7 +46,8 @@ export const query = graphql`
 	query SiteTitleQuery {
 		site {
 			siteMetadata {
-				title
+				metaTitle
+				metaDescription
 			}
 		}
 	}

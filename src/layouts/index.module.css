@@ -1,0 +1,8 @@
+.wrapper {
+
+}
+
+.container {
+	composes: pageContainer from 'common/styles/common.module.css';
+	padding-top: 5rem;
+}

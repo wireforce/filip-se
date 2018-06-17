@@ -1,0 +1,18 @@
+.wrapper {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 16px;
+	background-color: #ede9ce;
+	box-shadow: 0 0 3px rgba(99, 112, 107, 0.75);
+}
+
+.container {
+	composes: pageContainer from 'common/styles/common.module.css';
+}
+
+.svg {
+	max-width: 920px;
+	height: 16px;
+}

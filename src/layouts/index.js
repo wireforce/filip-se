@@ -22,7 +22,8 @@ const Layout = ({ children, data }) => (
 				},
 				{
 					rel: 'apple-touch-icon',
-					href: '/favicon.png',
+					href: '/icon-256.png',
+					sizes: '256x256',
 				},
 				{
 					rel: 'manifest',

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background: Filip Mode dark -->
+  <rect width="32" height="32" rx="7" fill="#0A0A12"/>
+
+  <!-- Lowercase "f" — hand-traced to match DM Mono proportions -->
+  <!-- Vertical stem -->
+  <rect x="9" y="9" width="2.5" height="17" rx="1.25" fill="#FFFFFF"/>
+  <!-- Top horizontal bar -->
+  <rect x="9" y="9" width="9" height="2.5" rx="1.25" fill="#FFFFFF"/>
+  <!-- Middle crossbar -->
+  <rect x="9" y="15.5" width="7" height="2.5" rx="1.25" fill="#FFFFFF"/>
+
+  <!-- Orange dot — mirrors the logo dot motif -->
+  <circle cx="23" cy="9.5" r="3.5" fill="#FF4D00"/>
+</svg>

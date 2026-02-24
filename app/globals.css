@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+/* ─── Tailwind v4: variants for dark and filip-mode themes ──────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant filip (&:where(.filip-mode, .filip-mode *));
+
+/* ─── CSS custom properties: Light theme (default / :root) ─────────────── */
+@layer base {
+  :root {
+    /* Logo dot */
+    --color-logo-dot: #FF4D00;
+
+    /* Backgrounds */
+    --color-bg: #F5F4F0;
+    --color-surface: #EFEDE8;
+    --color-surface-alt: #E8E5DF;
+
+    /* Typography */
+    --color-text: #1A1A1A;
+    --color-text-muted: #6B6860;
+    --color-heading: #0D0D0D;
+
+    /* Accent (forest green) */
+    --color-accent: #2D6A4F;
+    --color-accent-hover: #1B4332;
+
+    /* Borders */
+    --color-border: rgba(26, 26, 26, 0.12);
+    --color-border-strong: rgba(26, 26, 26, 0.24);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+    /* Floating SVG shape tints */
+    --color-shape-a: rgba(45, 106, 79, 0.12);
+    --color-shape-b: rgba(180, 160, 100, 0.10);
+
+    /* Custom cursor */
+    --color-cursor: #2D6A4F;
+
+    /* Sticky header */
+    --color-header-bg: rgba(245, 244, 240, 0.85);
+    --backdrop-header: saturate(180%) blur(12px);
+
+    /* Gradient (no neon in light mode — fallback to accent) */
+    --gradient-neon: var(--color-accent);
+    --gradient-neon-text: var(--color-accent);
+
+    /* Theme transition speed */
+    --transition-theme: 300ms ease;
+  }
+
+  /* ─── Dark theme ────────────────────────────────────────────────────── */
+  .dark {
+    --color-logo-dot: #FF4D00;
+    --color-bg: #0F0F0F;
+    --color-surface: #1A1A1A;
+    --color-surface-alt: #242424;
+
+    --color-text: #E8E5DF;
+    --color-text-muted: #7A7870;
+    --color-heading: #F5F4F0;
+
+    --color-accent: #52B788;
+    --color-accent-hover: #74C69D;
+
+    --color-border: rgba(232, 229, 223, 0.10);
+    --color-border-strong: rgba(232, 229, 223, 0.20);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.40);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.50);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.60);
+
+    --color-shape-a: rgba(82, 183, 136, 0.10);
+    --color-shape-b: rgba(116, 198, 157, 0.07);
+
+    --color-cursor: #52B788;
+
+    --color-header-bg: rgba(15, 15, 15, 0.80);
+    --backdrop-header: saturate(180%) blur(14px);
+
+    --gradient-neon: var(--color-accent);
+    --gradient-neon-text: var(--color-accent);
+  }
+
+  /* ─── Filip Mode ────────────────────────────────────────────────────── */
+  .filip-mode {
+    --color-logo-dot: #bf00ff;
+    --color-bg: #0A0A12;
+    --color-surface: rgba(255, 255, 255, 0.06);
+    --color-surface-alt: rgba(255, 255, 255, 0.04);
+
+    --color-text: #F0EFFF;
+    --color-text-muted: #9B96CC;
+    --color-heading: #FFFFFF;
+
+    --color-accent: #A259FF;
+    --color-accent-hover: #C77DFF;
+
+    --color-border: rgba(162, 89, 255, 0.20);
+    --color-border-strong: rgba(162, 89, 255, 0.45);
+
+    --shadow-sm: 0 1px 3px rgba(162, 89, 255, 0.15);
+    --shadow-md: 0 4px 16px rgba(162, 89, 255, 0.20);
+    --shadow-lg: 0 8px 32px rgba(162, 89, 255, 0.30);
+
+    --color-shape-a: rgba(162, 89, 255, 0.18);
+    --color-shape-b: rgba(0, 212, 255, 0.14);
+
+    --color-cursor: #A259FF;
+
+    --color-header-bg: rgba(10, 10, 18, 0.40);
+    --backdrop-header: saturate(200%) blur(20px);
+
+    /* Neon gradient — used for gradient text and decorative accents */
+    --gradient-neon: linear-gradient(135deg, #A259FF 0%, #FF6B9D 50%, #00D4FF 100%);
+    --gradient-neon-text: linear-gradient(135deg, #A259FF 0%, #FF6B9D 50%, #00D4FF 100%);
+  }
+}
+
+/* ─── Tailwind v4: expose CSS vars as utility classes ───────────────────── */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-heading: var(--color-heading);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-border: var(--color-border);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+/* ─── Base global styles ────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth CSS variable transitions across theme switches */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, box-shadow, opacity;
+    transition-duration: var(--transition-theme);
+    transition-timing-function: ease;
+  }
+
+  /* Exclude transitions for elements that shouldn't transition (animations) */
+  [data-no-transition],
+  [data-no-transition] * {
+    transition: none !important;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    /* Native cursor hidden — custom cursor takes over */
+    cursor: none;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ─── Dark mode: subtle diagonal grid texture on body ─────────────── */
+  .dark body {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0M0 0l40 40' stroke='%23ffffff' stroke-opacity='0.025' stroke-width='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* ─── Filip Mode: animated gradient blob background ────────────────── */
+  .filip-mode body {
+    background-color: #0A0A12;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(162, 89, 255, 0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(0, 212, 255, 0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 55% 45%, rgba(255, 107, 157, 0.12) 0%, transparent 60%);
+    animation: filip-bg-drift 9s ease-in-out infinite alternate;
+  }
+}
+
+/* ─── Filip Mode animated background keyframes ──────────────────────────── */
+@keyframes filip-bg-drift {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+  }
+  33% {
+    background-position: 25% 15%, 75% 85%, 60% 40%;
+  }
+  66% {
+    background-position: 10% 55%, 90% 25%, 40% 65%;
+  }
+  100% {
+    background-position: 45% 8%, 55% 92%, 30% 55%;
+  }
+}
+
+/* ─── Reduced motion: disable all animations ────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Animated logo ─────────────────────────────────────────────────────── */
+
+.filip-logo {
+  display: flex;
+  align-items: flex-end;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-heading);
+  text-decoration: none;
+  cursor: none;
+  user-select: none;
+}
+
+/* Each letter fades + slides up, staggered */
+.logo-letter {
+  display: inline-block;
+  position: relative;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: logoLetterIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.logo-letter:nth-child(1) { animation-delay: 0.05s; }
+.logo-letter:nth-child(2) { animation-delay: 0.12s; }
+.logo-letter:nth-child(3) { animation-delay: 0.19s; }
+.logo-letter:nth-child(4) { animation-delay: 0.26s; }
+.logo-letter:nth-child(5) { animation-delay: 0.33s; }
+
+/* Fake dot — covers the native 'i' dot once it lands */
+.logo-dot {
+  position: absolute;
+  top: -0.22em;
+  left: 50%;
+  width: 0.22em;
+  height: 0.22em;
+  border-radius: 50%;
+  background: var(--color-logo-dot);
+  transform-origin: center bottom;
+  /* Start invisible, above */
+  opacity: 0;
+  transform: translateX(-50%) translateY(-0.5em) scale(0.5);
+  /* Transition only for dot colour on theme switch */
+  transition: background-color var(--transition-theme), box-shadow var(--transition-theme);
+}
+
+.logo-dot-1 {
+  animation:
+    logoDotDrop 0.6s cubic-bezier(0.34, 1.6, 0.64, 1) 0.55s forwards,
+    logoBlinkDot 7s 1.5s infinite;
+}
+
+.logo-dot-2 {
+  animation:
+    logoDotDrop 0.6s cubic-bezier(0.34, 1.6, 0.64, 1) 0.65s forwards,
+    logoBlinkDot 11s 3.2s infinite;
+}
+
+/* Filip Mode: neon glow on dots + pulse */
+.filip-mode .logo-dot {
+  box-shadow: 0 0 8px #bf00ff, 0 0 20px #bf00ff88;
+}
+
+.filip-mode .logo-dot-1 {
+  animation:
+    logoDotDrop 0.6s cubic-bezier(0.34, 1.6, 0.64, 1) 0.55s forwards,
+    logoGlowPulse 2.5s 1.5s infinite alternate,
+    logoBlinkDot 7s 1.5s infinite;
+}
+
+.filip-mode .logo-dot-2 {
+  animation:
+    logoDotDrop 0.6s cubic-bezier(0.34, 1.6, 0.64, 1) 0.65s forwards,
+    logoGlowPulse 2.5s 2.2s infinite alternate,
+    logoBlinkDot 11s 3.2s infinite;
+}
+
+/* Hover: dots bounce up */
+.filip-logo:hover .logo-dot-1 {
+  animation:
+    logoDotBounce 0.5s cubic-bezier(0.34, 1.8, 0.64, 1) 0s,
+    logoBlinkDot 7s 1.5s infinite;
+}
+
+.filip-logo:hover .logo-dot-2 {
+  animation:
+    logoDotBounce 0.5s cubic-bezier(0.34, 1.8, 0.64, 1) 0.07s,
+    logoBlinkDot 11s 3.2s infinite;
+}
+
+@keyframes logoLetterIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes logoDotDrop {
+  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+@keyframes logoBlinkDot {
+  0%, 94%, 98%, 100% { transform: translateX(-50%) translateY(0) scaleY(1); }
+  96%                 { transform: translateX(-50%) translateY(1px) scaleY(0.05); }
+}
+
+@keyframes logoDotBounce {
+  0%   { transform: translateX(-50%) translateY(0) scale(1); }
+  40%  { transform: translateX(-50%) translateY(-0.55em) scale(1.2); }
+  70%  { transform: translateX(-50%) translateY(0.08em) scale(0.9); }
+  100% { transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+@keyframes logoGlowPulse {
+  from { box-shadow: 0 0 6px #bf00ff, 0 0 16px #bf00ff66; }
+  to   { box-shadow: 0 0 14px #bf00ff, 0 0 40px #bf00ffaa, 0 0 60px #bf00ff44; }
+}
+
+/* ─── Utility: gradient text ────────────────────────────────────────────── */
+.gradient-text {
+  background: var(--gradient-neon-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Fallback: in light/dark mode gradient-neon-text is a solid color,
+     so background-clip still works but shows the accent color */
+}

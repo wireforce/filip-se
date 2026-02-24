@@ -30,11 +30,11 @@ export function HeroSection() {
           variants={heroItem}
           className="font-bold leading-[0.92] tracking-tight"
           style={{
-            fontSize: "clamp(4rem, 14vw, 10rem)",
+            fontSize: "clamp(2.5rem, 8vw, 6rem)",
             color: "var(--color-heading)",
           }}
         >
-          Filip.
+          Filip Wirefors.
         </motion.h1>
 
         {/* Tagline */}

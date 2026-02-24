@@ -22,26 +22,8 @@ export function AboutSection() {
           className="text-xs font-mono uppercase tracking-[0.3em] mb-8"
           style={{ color: "var(--color-text-muted)" }}
         >
-          About me
+          [ About me ]
         </motion.p>
-
-        {/* Decorative geometric element */}
-        <motion.div
-          variants={scrollReveal}
-          className="mb-10"
-          aria-hidden="true"
-        >
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect
-              x="4" y="4" width="40" height="40"
-              stroke="var(--color-shape-a)"
-              strokeWidth="1.5"
-              strokeDasharray="4 3"
-            />
-            <circle cx="24" cy="24" r="8" fill="var(--color-shape-a)" fillOpacity="0.6" />
-            <circle cx="24" cy="24" r="3" fill="var(--color-accent)" fillOpacity="0.8" />
-          </svg>
-        </motion.div>
 
         {/* Bio paragraph */}
         <motion.p

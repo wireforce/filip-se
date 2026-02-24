@@ -23,7 +23,7 @@ export function WhatIDoSection() {
           className="text-xs font-mono uppercase tracking-[0.3em] mb-8"
           style={{ color: "var(--color-text-muted)" }}
         >
-          What I do
+          [ What I do ]
         </motion.p>
 
         {/* The statement */}

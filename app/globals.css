@@ -159,11 +159,14 @@
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
-    /* Native cursor hidden — custom cursor takes over */
-    cursor: none;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom cursor replaces native one — fine-pointer (mouse) devices only */
+  @media (pointer: fine) {
+    body { cursor: none; }
   }
 
   /* ─── Dark mode: subtle diagonal grid texture on body ─────────────── */

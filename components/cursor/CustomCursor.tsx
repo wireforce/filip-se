@@ -11,11 +11,16 @@ export function CustomCursor() {
   const x = useSpring(rawX, { stiffness: 150, damping: 20, mass: 0.5 });
   const y = useSpring(rawY, { stiffness: 150, damping: 20, mass: 0.5 });
 
+  const [isPointerDevice, setIsPointerDevice] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isPointer, setIsPointer] = useState(false);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
+    // Only activate on fine-pointer devices (mouse/trackpad); skip touch screens
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    setIsPointerDevice(true);
+
     const handleMouseMove = (e: MouseEvent) => {
       // Use rAF to batch updates and avoid over-rendering
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -48,6 +53,8 @@ export function CustomCursor() {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [rawX, rawY]);
+
+  if (!isPointerDevice) return null;
 
   return (
     <>

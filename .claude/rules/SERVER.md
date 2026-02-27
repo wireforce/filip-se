@@ -15,9 +15,3 @@
 - Avoid unnecessary allocations in hot paths.
 - Prefer streaming responses (`new Response(stream)`) for large payloads.
 - Leverage Next.js fetch caching (`cache: "force-cache"`, `revalidate`, tags) instead of building a custom cache layer.
-
-## Security
-- Never log secrets/tokens.
-- Validate external inputs.
-- Prefer allow-lists over deny-lists for sensitive logic.
-- In Server Actions, always re-authorize the user; do not trust that "only logged-in users can reach this UI".

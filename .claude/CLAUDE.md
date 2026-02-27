@@ -19,3 +19,5 @@ This repo uses:
 - React/Tailwind patterns: .claude/rules/WEB.md
 - Testing rules: .claude/rules/TESTING.md
 - Playwright rules: .claude/rules/PLAYWRIGHT.md
+- Security (OWASP Top 10): .claude/rules/SECURITY.md
+- Copy style: .claude/rules/COPY_STYLE.md

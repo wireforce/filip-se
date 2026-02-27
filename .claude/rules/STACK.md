@@ -24,3 +24,5 @@
 - Use the repo's existing package manager and scripts.
 - If unclear, prefer `bun` but do not change tooling unless requested.
 - For new projects started from scratch, always initialize with `bun`.
+- When adding a new dependency, always install the latest stable version (`bun add package@latest`). Do not guess or default to an outdated version.
+- Do not manually pin versions unless the user explicitly requests it or a known incompatibility requires it.

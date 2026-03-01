@@ -1,13 +1,24 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { FloatingShapes } from "@/components/ui/FloatingShapes";
 import { heroContainer, heroItem } from "@/lib/animations";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <FloatingShapes />
+      {/* Background portrait — filtered per theme via CSS variable */}
+      <Image
+        src="/filip-monochrome.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-left-top md:object-center hero-portrait"
+        aria-hidden="true"
+      />
+
+      {/* Theme-aware overlay for legibility */}
+      <div className="absolute inset-0 hero-portrait-overlay" aria-hidden="true" />
 
       {/* Main content — centered, staggered entrance */}
       <motion.div

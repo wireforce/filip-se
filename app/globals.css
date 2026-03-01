@@ -50,6 +50,14 @@
 
     /* Theme transition speed */
     --transition-theme: 300ms ease;
+
+    /* Hero portrait */
+    --hero-portrait-filter: brightness(1.15) contrast(0.9) saturate(0.7);
+    --hero-overlay: radial-gradient(
+      ellipse 60% 70% at 50% 50%,
+      rgba(245, 244, 240, 0.75) 0%,
+      rgba(245, 244, 240, 0.20) 100%
+    );
   }
 
   /* ─── Dark theme ────────────────────────────────────────────────────── */
@@ -83,6 +91,12 @@
 
     --gradient-neon: var(--color-accent);
     --gradient-neon-text: var(--color-accent);
+
+    /* Hero portrait */
+    --hero-portrait-filter: brightness(1.05) hue-rotate(260deg) saturate(1.4);
+    --hero-overlay:
+      radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0, 0, 0, 0.92) 0%, transparent 100%),
+      linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48));
   }
 
   /* ─── Filip Mode ────────────────────────────────────────────────────── */
@@ -117,6 +131,12 @@
     /* Neon gradient — used for gradient text and decorative accents */
     --gradient-neon: linear-gradient(135deg, #A259FF 0%, #FF6B9D 50%, #00D4FF 100%);
     --gradient-neon-text: linear-gradient(135deg, #A259FF 0%, #FF6B9D 50%, #00D4FF 100%);
+
+    /* Hero portrait — image already has purple/lavender tones that match this theme */
+    --hero-portrait-filter: brightness(1) saturate(1);
+    --hero-overlay:
+      radial-gradient(ellipse 50% 60% at 50% 50%, rgba(10, 10, 18, 0.92) 0%, transparent 100%),
+      linear-gradient(rgba(10, 10, 18, 0.48), rgba(10, 10, 18, 0.48));
   }
 }
 
@@ -327,6 +347,17 @@
 @keyframes logoGlowPulse {
   from { box-shadow: 0 0 6px #bf00ff, 0 0 16px #bf00ff66; }
   to   { box-shadow: 0 0 14px #bf00ff, 0 0 40px #bf00ffaa, 0 0 60px #bf00ff44; }
+}
+
+/* ─── Hero portrait: theme-aware image filter and overlay ───────────────── */
+.hero-portrait {
+  filter: var(--hero-portrait-filter);
+  transition: filter var(--transition-theme);
+}
+
+.hero-portrait-overlay {
+  background: var(--hero-overlay);
+  transition: background var(--transition-theme);
 }
 
 /* ─── Utility: gradient text ────────────────────────────────────────────── */

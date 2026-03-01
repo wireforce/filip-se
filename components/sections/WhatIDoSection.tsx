@@ -1,17 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FloatingShapes } from "@/components/ui/FloatingShapes";
 import { sectionContainer, scrollReveal } from "@/lib/animations";
 
 export function WhatIDoSection() {
   return (
     <section
       id="what-i-do"
-      className="py-32 px-6 flex items-center justify-center"
+      className="relative py-32 px-6 flex items-center justify-center overflow-hidden"
       style={{ minHeight: "60vh" }}
     >
+      <FloatingShapes />
       <motion.div
-        className="max-w-3xl w-full"
+        className="relative z-10 max-w-3xl w-full"
         variants={sectionContainer}
         initial="hidden"
         whileInView="visible"
